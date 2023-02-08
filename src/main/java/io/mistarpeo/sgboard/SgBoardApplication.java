@@ -12,10 +12,4 @@ public class SgBoardApplication {
         SpringApplication.run(SgBoardApplication.class, args);
     }
 
-//    @Bean
-//    public ServletRegistrationBean h2servletRegistration() {
-//        ServletRegistrationBean registration = new ServletRegistrationBean(new WebServlet());
-//        registration.addUrlMappings("/h2-console/*");
-//        return registration;
-//    }
 }
