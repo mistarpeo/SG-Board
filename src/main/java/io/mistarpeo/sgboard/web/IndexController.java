@@ -21,6 +21,12 @@ public class IndexController {
         return "index";
     }
 
+    @GetMapping("/_index")
+    public String _index(Model model) {
+        model.addAttribute("posts", postsService.findAllDesc());
+        return "_index";
+    }
+
     @GetMapping("/posts/save")
     public String postsSave() {
         return "posts-save";
