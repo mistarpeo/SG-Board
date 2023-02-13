@@ -1,6 +1,5 @@
 package io.mistarpeo.sgboard.web.dto;
 
-import io.mistarpeo.sgboard.web.dto.HelloResponseDto;
 import org.junit.jupiter.api.Test;
 
 import static org.assertj.core.api.Assertions.assertThat;
