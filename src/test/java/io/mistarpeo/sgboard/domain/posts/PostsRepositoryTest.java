@@ -33,7 +33,7 @@ class PostsRepositoryTest {
                         .content(content)
                         .author("mistarpeo@gmail.com").build()
                 );
-
+ 
         // When
         Optional<Posts> posts = postsRepository.findById(saved_posts.getId());
         if(!posts.isPresent()) {
