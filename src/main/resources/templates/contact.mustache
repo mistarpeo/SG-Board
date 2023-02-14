@@ -14,7 +14,7 @@
 
         <!-- # site-content
         ================================================== -->
-        <div id="content" class="s-content s-content--page">
+        <section id="content" class="s-content s-content--page">
 
                 <div class="row entry-wrap">
                     <div class="column lg-12">
@@ -31,10 +31,10 @@
 
                             <div class="entry__media">
                                 <figure class="featured-image">
-                                    <img src="images/thumbs/contact/contact-1200.jpg" 
-                                      srcset="images/thumbs/contact/contact-2400.jpg 2400w, 
-                                              images/thumbs/contact/contact-1200.jpg 1200w, 
-                                              images/thumbs/contact/contact-600.jpg 600w" sizes="(max-width: 2400px) 100vw, 2400px" alt="">
+                                    <img src="/static/images/thumbs/contact/contact-1200.jpg" 
+                                      srcset="/static/images/thumbs/contact/contact-2400.jpg 2400w, 
+                                              /static/images/thumbs/contact/contact-1200.jpg 1200w,
+                                              /static/images/thumbs/contact/contact-600.jpg 600w" sizes="(max-width: 2400px) 100vw, 2400px" alt="">
                                 </figure>
                             </div>
 
@@ -81,19 +81,19 @@
                                         <fieldset class="row">
 
                                             <div class="column lg-6 tab-12 form-field">
-                                                <input name="cName" id="cName" class="u-fullwidth" placeholder="Your Name" value="" type="text">
+                                                <input name="cName" id="cName" class="u-fullwidth" placeholder="Your Name" value="" type="text" aria-label="Your Name input field">
                                             </div>
 
                                             <div class="column lg-6 tab-12 form-field">
-                                                <input name="cEmail" id="cEmail" class="u-fullwidth" placeholder="Your Email" value="" type="text">
+                                                <input name="cEmail" id="cEmail" class="u-fullwidth" placeholder="Your Email" value="" type="text" aria-label="Your Email input field">
                                             </div>
 
                                             <div class="column lg-12 form-field">
-                                                <input name="cWebsite" id="cWebsite" class="u-fullwidth" placeholder="Website" value="" type="text">
+                                                <input name="cWebsite" id="cWebsite" class="u-fullwidth" placeholder="Website" value="" type="text" aria-label="Your Website input field">
                                             </div>
 
                                             <div class="column lg-12 message form-field">
-                                                <textarea name="cMessage" id="cMessage" class="u-fullwidth" placeholder="Your Message"></textarea>
+                                                <textarea name="cMessage" id="cMessage" class="u-fullwidth" placeholder="Your Message" aria-label="Your Message input field"></textarea>
                                             </div>
 
                                             <div class="column lg-12">
@@ -109,7 +109,6 @@
 
                     </div>
                 </div> <!-- end entry-wrap -->
-        </div>
         </section> <!-- end s-content -->
     </div>
 
