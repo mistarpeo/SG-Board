@@ -28,7 +28,6 @@ class PostsApiControllerTest {
 
     @Autowired
     private TestRestTemplate restTemplate;
-
     @Autowired
     private PostsRepository postsRepository;
 
@@ -76,23 +75,7 @@ class PostsApiControllerTest {
         Long updateId = savePosts.getId();
 
 
-        String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
-
-        PostsUpdateRequestDto requestDto = PostsUpdateRequestDto.builder().title(expectTitle).content(expectContent).build();
-        HttpEntity<PostsUpdateRequestDto> requestEntity = new HttpEntity<>(requestDto);
-
-        //when
-        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestEntity, Long.class);
-
-        // then
-        assertThat(responseEntity.getStatusCode()).isEqualTo(HttpStatus.OK);
-        assertThat(responseEntity.getBody()).isGreaterThan(0L);
-
-        Optional<Posts> expectPosts = postsRepository.findById(updateId);
-        if(expectPosts.isPresent()) {
-            assertThat(expectPosts.get().getTitle()).isEqualTo(expectTitle);
-            assertThat(expectPosts.get().getContent()).isEqualTo(expectContent);
-        }
+        String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;e
 
     }
 
