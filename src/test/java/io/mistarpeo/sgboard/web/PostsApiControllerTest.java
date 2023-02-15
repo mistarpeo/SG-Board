@@ -75,7 +75,7 @@ class PostsApiControllerTest {
         Long updateId = savePosts.getId();
 
 
-        String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;e
+        String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
 
     }
 
