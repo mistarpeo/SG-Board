@@ -2,7 +2,6 @@ package io.mistarpeo.sgboard.web;
 
 import io.mistarpeo.sgboard.domain.posts.Posts;
 import io.mistarpeo.sgboard.domain.posts.PostsRepository;
-import io.mistarpeo.sgboard.web.dto.PostsResponseDto;
 import io.mistarpeo.sgboard.web.dto.PostsSaveRequestDto;
 import io.mistarpeo.sgboard.web.dto.PostsUpdateRequestDto;
 
