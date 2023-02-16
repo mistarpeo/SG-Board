@@ -12,6 +12,9 @@ spring:
   devtools:
     livereload:
       enabled: true
+
+  profiles:
+    include: oauth
 #
 #  mvc:
 #    static-path-pattern: /static/**
