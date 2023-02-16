@@ -1,7 +1,6 @@
 package io.mistarpeo.sgboard;
  
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
  
 public class LadderGame2 {
 
