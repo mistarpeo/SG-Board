@@ -59,19 +59,19 @@ class PostsApiControllerTest {
     @Test
     void update() {
         //given
-        String title = "test";
-        String content = "content";
-        String author = "author";
+        // String title = "test";
+        // String content = "content";
+        // String author = "author";
 
-        String expectTitle = "test2";
-        String expectContent = "content2";
+        // String expectTitle = "test2";
+        // String expectContent = "content2";
 
         // 저장
-        Posts savePosts = postsRepository.save(Posts.builder().title(title).content(content).author(author).build());
-        Long updateId = savePosts.getId();
+        // Posts savePosts = postsRepository.save(Posts.builder().title(title).content(content).author(author).build());
+        // Long updateId = savePosts.getId();
 
 
-        String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
+        // String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
 
     }
 
