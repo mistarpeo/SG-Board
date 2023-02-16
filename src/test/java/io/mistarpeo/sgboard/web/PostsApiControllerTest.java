@@ -2,7 +2,10 @@ package io.mistarpeo.sgboard.web;
 
 import io.mistarpeo.sgboard.domain.posts.Posts;
 import io.mistarpeo.sgboard.domain.posts.PostsRepository;
+import io.mistarpeo.sgboard.web.dto.PostsResponseDto;
 import io.mistarpeo.sgboard.web.dto.PostsSaveRequestDto;
+import io.mistarpeo.sgboard.web.dto.PostsUpdateRequestDto;
+
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,21 +61,32 @@ class PostsApiControllerTest {
 
     @Test
     void update() {
-        //given
-        // String title = "test";
-        // String content = "content";
-        // String author = "author";
+        
 
-        // String expectTitle = "test2";
-        // String expectContent = "content2";
+        //given
+        String title = "test";
+        String content = "content";
+        String author = "author";
+
+        String expectTitle = "test2";
+        String expectContent = "content2";
 
         // 저장
-        // Posts savePosts = postsRepository.save(Posts.builder().title(title).content(content).author(author).build());
-        // Long updateId = savePosts.getId();
+        Posts savePosts = postsRepository.save(Posts.builder().title(title).content(content).author(author).build());
+        Long updateId = savePosts.getId();
 
 
-        // String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
+        String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
 
+
+        PostsUpdateRequestDto updateDto = PostsUpdateRequestDto.builder().title(expectTitle).content(expectContent).build();
+
+        //When
+        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, updateDto, Long.class);
+
+        List<Posts> all = postsRepository.findAll();
+        assertThat(all.get(0).getTitle()).isEqualTo(expectTitle);
+        assertThat(all.get(0).getContent()).isEqualTo(expectContent);
     }
 
     @Test
