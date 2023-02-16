@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.web.client.TestRestTemplate;
 import org.springframework.boot.test.web.server.LocalServerPort;
+import org.springframework.http.HttpEntity;
+import org.springframework.http.HttpMethod;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
@@ -78,18 +80,17 @@ class PostsApiControllerTest {
 
         String url = "http://localhost:"+port+"/api/v1/posts/"+ updateId;
 
-
         PostsUpdateRequestDto updateDto = PostsUpdateRequestDto.builder().title(expectTitle).content(expectContent).build();
 
+        HttpEntity<PostsUpdateRequestDto> requestDtoHttpEntity = new HttpEntity<>(updateDto);
+
         //When
-        ResponseEntity<Long> responseEntity = restTemplate.postForEntity(url, updateDto, Long.class);
+        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestDtoHttpEntity, Long.class);
 
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectTitle);
         assertThat(all.get(0).getContent()).isEqualTo(expectContent);
     }
 
-    @Test
-    void findById() {
-    }
+
 }
