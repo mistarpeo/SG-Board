@@ -27,7 +27,7 @@ public class SecurityConfig {
                 .and()
                 // authorizeRequests
                 // URL별 권한 관리를 설정하는 옵션의 시작점이다. authorizeRequests가 선언되어야만 antMatchers 옵션을 사용할 수 있다.
-                .authorizeRequests()
+                .authorizeHttpRequests()
                 // antMatchers
                 // 권한 관리 대상을 지정하는 옵션이다.
                 // URL, HTTP 메소드별로 관리가 가능하다. 지정된 URL들은 permitAll() 옵션을 통해 전체 열람 관한을 준다.

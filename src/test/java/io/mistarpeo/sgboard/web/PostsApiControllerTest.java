@@ -84,7 +84,7 @@ class PostsApiControllerTest {
         HttpEntity<PostsUpdateRequestDto> requestDtoHttpEntity = new HttpEntity<>(updateDto);
 
         //When
-        ResponseEntity<Long> responseEntity = restTemplate.exchange(url, HttpMethod.PUT, requestDtoHttpEntity, Long.class);
+        restTemplate.exchange(url, HttpMethod.PUT, requestDtoHttpEntity, Long.class);
 
         List<Posts> all = postsRepository.findAll();
         assertThat(all.get(0).getTitle()).isEqualTo(expectTitle);

@@ -1,5 +1,6 @@
 package io.mistarpeo.sgboard.web;
 
+import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -7,6 +8,10 @@ import org.springframework.web.bind.annotation.PathVariable;
 
 import io.mistarpeo.sgboard.service.posts.PostsService;
 import io.mistarpeo.sgboard.web.dto.PostsResponseDto;
+import jakarta.servlet.http.HttpSession;
+import io.mistarpeo.sgboard.config.auth.LoginUser;
+import io.mistarpeo.sgboard.config.auth.dto.SessionUser;
+
 import lombok.RequiredArgsConstructor;
 
 @RequiredArgsConstructor
@@ -14,17 +19,21 @@ import lombok.RequiredArgsConstructor;
 public class IndexController {
 
     private final PostsService postsService;
+    private final HttpSession httpSession;
     
     @GetMapping("/")
     public String index(Model model) {
-//        model.addAttribute("posts", postsService.findAllDesc());
         model.addAttribute("title", "");
         return "index";
     }
 
     @GetMapping("/_index")
-    public String _index(Model model) {
+    public String _index(Model model, @LoginUser SessionUser user ) {
         model.addAttribute("posts", postsService.findAllDesc());
+        // SessionUser user = (SessionUser) httpSession.getAttribute("user");
+        if(user != null) {
+            model.addAttribute("userName", user.getName());
+        }
         return "_index";
     }
 
