@@ -1,6 +1,7 @@
 package io.mistarpeo.sgboard.config.auth;
 
 import org.springframework.core.MethodParameter;
+import org.springframework.lang.Nullable;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;
@@ -27,9 +28,9 @@ public class LoginUserArgumentResolver implements HandlerMethodArgumentResolver 
 
     @Override //2
     public Object resolveArgument(MethodParameter parameter,
-                                  ModelAndViewContainer mavContainer,
+                                  @Nullable ModelAndViewContainer mavContainer,
                                   NativeWebRequest webRequest,
-                                  WebDataBinderFactory binderFactory) throws Exception {
+                                  @Nullable WebDataBinderFactory binderFactory) throws Exception {
  
         return httpSession.getAttribute("user");
     }
